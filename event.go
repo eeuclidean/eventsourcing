@@ -1,4 +1,4 @@
-package eventstorming
+package eventsourcing
 
 type Event struct {
 	EventID   string `json:"event_id,omitempty"   bson:"_id,omitempty"`
