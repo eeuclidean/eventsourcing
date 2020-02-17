@@ -6,9 +6,9 @@ import (
 	"log"
 	"time"
 
-	"github.com/innovathors/eventstorming/utils"
+	"github.com/eeuclidean/eventsourcing/utils"
 
-	"github.com/innovathors/eventstorming"
+	"github.com/eeuclidean/eventsourcing"
 
 	"context"
 

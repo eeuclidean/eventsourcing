@@ -1,9 +1,9 @@
 package publisher
 
 import (
-	"github.com/innovathors/eventstorming"
-	"github.com/innovathors/eventstorming/eventstore"
-	"github.com/innovathors/eventstorming/utils"
+	"github.com/eeuclidean/eventsourcing"
+	"github.com/eeuclidean/eventsourcing/eventstore"
+	"github.com/eeuclidean/eventsourcing/utils"
 
 	"github.com/go-redis/redis"
 )

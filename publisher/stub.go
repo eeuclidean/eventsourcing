@@ -3,7 +3,7 @@ package publisher
 import (
 	"errors"
 
-	"github.com/innovathors/eventstorming"
+	"github.com/eeuclidean/eventsourcing"
 )
 
 type PublisherSuccessStub struct{}
