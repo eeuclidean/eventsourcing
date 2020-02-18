@@ -12,7 +12,7 @@ import (
 
 	"context"
 
-	"github.com/go-redis/redis"
+	"github.com/go-redis/redis"  
 )
 
 type RedisEventConsumer struct {
@@ -172,8 +172,8 @@ func (adapter RedisEventConsumer) streams() []string {
 	return streams
 }
 
-func (adapter RedisEventConsumer) messageToEvent(values map[string]interface{}) (eventstorming.Event, error) {
-	var event eventstorming.Event
+func (adapter RedisEventConsumer) messageToEvent(values map[string]interface{}) (eventsourcing.Event, error) {
+	var event eventsourcing.Event
 	valuesString, err := json.Marshal(values)
 	if err != nil {
 		return event, err

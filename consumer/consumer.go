@@ -2,6 +2,7 @@ package consumer
 
 import (
 	"context"
+
 	"github.com/eeuclidean/eventsourcing"
 )
 
@@ -10,5 +11,5 @@ type EventConsumer interface {
 }
 
 type EventConsumerHandler interface {
-	Apply(event eventstorming.Event) error
+	Apply(event eventsourcing.Event) error
 }

@@ -18,7 +18,7 @@ type RedisAdapterDomainEventPublisher struct {
 	client           *redis.Client
 }
 
-func (adapter *RedisAdapterDomainEventPublisher) Publish(event eventstorming.Event) error {
+func (adapter *RedisAdapterDomainEventPublisher) Publish(event eventsourcing.Event) error {
 	if err := adapter.init(); err != nil {
 		return err
 	}
@@ -39,7 +39,7 @@ func (adapter *RedisAdapterDomainEventPublisher) init() error {
 	return nil
 }
 
-func (adapter *RedisAdapterDomainEventPublisher) save(event eventstorming.Event) error {
+func (adapter *RedisAdapterDomainEventPublisher) save(event eventsourcing.Event) error {
 	if adapter.SaveToEventStore && adapter.EventStore != nil {
 		if err := adapter.EventStore.Save(event); err != nil {
 			return err
@@ -48,7 +48,7 @@ func (adapter *RedisAdapterDomainEventPublisher) save(event eventstorming.Event)
 	return nil
 }
 
-func (adapter *RedisAdapterDomainEventPublisher) publish(event eventstorming.Event) error {
+func (adapter *RedisAdapterDomainEventPublisher) publish(event eventsourcing.Event) error {
 	values := map[string]interface{}{
 		"event_id":   event.EventID,
 		"event_name": event.EventName,

@@ -19,7 +19,7 @@ type MongoAdapterEventStore struct {
 	collection *mgo.Collection
 }
 
-func (adapter *MongoAdapterEventStore) Save(event eventstorming.Event) error {
+func (adapter *MongoAdapterEventStore) Save(event eventsourcing.Event) error {
 	event.EventID = adapter.generateEventID()
 	event.TimeStamp = time.Now().UTC().Format(time.RFC3339)
 	return adapter.execute(event)
@@ -55,7 +55,7 @@ func (adapter *MongoAdapterEventStore) generateEventID() string {
 	return id
 }
 
-func (adapter *MongoAdapterEventStore) execute(event eventstorming.Event) error {
+func (adapter *MongoAdapterEventStore) execute(event eventsourcing.Event) error {
 	if err := adapter.init(); err != nil {
 		return err
 	}
